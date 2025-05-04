@@ -1,0 +1,29 @@
+<h3>Listao de heroes</h3>
+
+<!-- usar ngif puede ser util y de paso podemo usar el 'else' -->
+<div *ngIf="heroDeleted; else nowaitDeleted">
+  <h3>Héro borrado <small class="text-danget">{{ heroDeleted }}  </small></h3>
+</div>
+<!-- el ng templeate es algo que podemo usar y que no se genera en el binding -->
+<ng-template #nowaitDeleted>
+  <h3>no ha borrado nada</h3>
+</ng-template>
+
+
+<!-- definimos que si el arreglo es cero no se muestre el boton. -->
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="deletedHero()"
+  class="btn btn-outline-danger">
+  elminar Heroe
+</button>
+
+<!-- recorremos el listado de nombre con un ngfor. -->
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames"
+    class="list-group-item"
+  >
+    {{ name }}
+  </li>
+</ul>
+
