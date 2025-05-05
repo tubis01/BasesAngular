@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { counterModule } from './counter/counter.module';
 import { heroModule } from './heroes/heros.module';
+import { dragonBzModule } from './dbz/dbz.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { heroModule } from './heroes/heros.module';
     BrowserModule,
     AppRoutingModule,
     counterModule,
-    heroModule
+    heroModule,
+    dragonBzModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,19 @@
+<h1>Personajes DBZ</h1>
+
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!-- enviamos los datos a la varaiable characterList(esta en el hijo)
+      y los recibe de la variable character que del padre
+    -->
+    <dbz-list [characterList]="character"> </dbz-list>
+  </div>
+
+  <div class="col">
+    <!-- el padre recibe el evento que emite el hijo (emitNewCharacteer) y atrata el eventon ($event)
+    con el metodo en el padre (emitCharacter($event))
+    -->
+    <add-dbz-character (emitNewCharacter)="emitCharacter($event)"></add-dbz-character>
+  </div>
+</div>
