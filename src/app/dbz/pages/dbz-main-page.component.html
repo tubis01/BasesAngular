@@ -7,13 +7,15 @@
     <!-- enviamos los datos a la varaiable characterList(esta en el hijo)
       y los recibe de la variable character que del padre
     -->
-    <dbz-list [characterList]="character"> </dbz-list>
+    <dbz-list
+    (emitDeleteIndex)="onDeleteCharacter($event)"
+    [characterList]="characters"> </dbz-list>
   </div>
 
   <div class="col">
-    <!-- el padre recibe el evento que emite el hijo (emitNewCharacteer) y atrata el eventon ($event)
+    <!-- el padre recibe el evento que emite el hijo (emitNewCharacteer) y atrapa el evento ($event)
     con el metodo en el padre (emitCharacter($event))
     -->
-    <add-dbz-character (emitNewCharacter)="emitCharacter($event)"></add-dbz-character>
+    <add-dbz-character (emitNewCharacter)="onNewCharacter($event)"></add-dbz-character>
   </div>
 </div>

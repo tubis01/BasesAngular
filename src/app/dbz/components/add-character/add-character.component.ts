@@ -21,13 +21,15 @@ export class AddCharacterComponent {
     if(this.character.name.length === 0 ) return;
 
     // me ayuda a detener la aplicacion en este punto y poder analizar como va el flujo de mi aplicacion
-    
-    debugger;
 
-    console.log('character from add-character')
-    console.log(this.character)
+    // debugger;
 
+    // emito el evento que es de tipo character
     this.emitNewCharacter.emit(this.character)
+
+    this.character.name  ='';
+    this.character.power = 0 ;
+
   }
 
 

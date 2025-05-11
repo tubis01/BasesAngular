@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from '../interface/character.interface';
+import { DbzService } from '../service/dbz.service';
 
 @Component({
   selector: 'app-dzb-main-page',
@@ -9,25 +10,20 @@ import { Character } from '../interface/character.interface';
 export class dbzMainPageComponente {
 
   // es la lista de caracteres que le estamos enviand al hijo
-  public character: Character[] = [
-    {
-      name: 'Trunks',
-      power: 1500
-    },
-    {
-      name: 'goky',
-      power: 1000
-    },
-    {
-      name: 'krillin',
-      power: 5000
-    },
-];
 
+  // La inyeccino de dependecias fomenta la composicion antes que la herencia.
+  constructor( private dbzService: DbzService){}
 
-emitCharacter(character: Character): void{
-  console.log('character from mainn ')
-  console.log(character)
-}
+  get characters(): Character[]{
+    return this.dbzService.characters;
+  }
+
+  onDeleteCharacter( id: string ): void {
+    this.dbzService.delteCharacterById( id )
+  }
+
+  onNewCharacter(character: Character) : void {
+    this.dbzService.addCharacter(  character )
+  }
 
 }
